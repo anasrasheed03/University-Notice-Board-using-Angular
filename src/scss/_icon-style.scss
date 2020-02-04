@@ -1,0 +1,222 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('assets/fonts/icomoon.eot?8muh0z');
+  src:  url('assets/fonts/icomoon.eot?8muh0z#iefix') format('embedded-opentype'),
+    url('assets/fonts/icomoon.ttf?8muh0z') format('truetype'),
+    url('assets/fonts/icomoon.woff?8muh0z') format('woff'),
+    url('assets/fonts/icomoon.svg?8muh0z#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-bike .path1:before {
+  content: "\e900";
+  color: rgb(117, 43, 116);
+}
+.icon-bike .path2:before {
+  content: "\e901";
+  margin-left: -1em;
+  color: rgb(74, 74, 74);
+}
+.icon-bike .path3:before {
+  content: "\e902";
+  margin-left: -1em;
+  color: rgb(74, 74, 74);
+}
+.icon-bike .path4:before {
+  content: "\e903";
+  margin-left: -1em;
+  color: rgb(117, 43, 116);
+}
+.icon-calendar:before {
+  content: "\e904";
+}
+.icon-configuration:before {
+  content: "\e905";
+}
+.icon-cross:before {
+  content: "\e906";
+  color: #d0021b;
+}
+.icon-dropdown .path1:before {
+  content: "\e907";
+  color: rgb(49, 55, 61);
+}
+.icon-dropdown .path2:before {
+  content: "\e908";
+  margin-left: -1em;
+  color: rgb(135, 135, 135);
+}
+.icon-eye:before {
+  content: "\e909";
+  color: #c8c8c8;
+}
+.icon-Inbox:before {
+  content: "\e90a";
+}
+.icon-information:before {
+  content: "\e90b";
+  color: #f5a623;
+}
+.icon-InProgress:before {
+  content: "\e90c";
+}
+.icon-install .path1:before {
+  content: "\e90d";
+  color: rgb(117, 43, 116);
+}
+.icon-install .path2:before {
+  content: "\e90e";
+  margin-left: -1em;
+  color: rgb(117, 43, 116);
+}
+.icon-install .path3:before {
+  content: "\e90f";
+  margin-left: -1em;
+  color: rgb(117, 43, 116);
+}
+.icon-install .path4:before {
+  content: "\e910";
+  margin-left: -1em;
+  color: rgb(117, 43, 116);
+}
+.icon-install .path5:before {
+  content: "\e911";
+  margin-left: -1em;
+  color: rgb(74, 74, 74);
+}
+.icon-letters-agreements:before {
+  content: "\e912";
+}
+.icon-loan .path1:before {
+  content: "\e913";
+  color: rgb(74, 74, 74);
+}
+.icon-loan .path2:before {
+  content: "\e914";
+  margin-left: -1em;
+  color: rgb(117, 43, 116);
+}
+.icon-loan .path3:before {
+  content: "\e915";
+  margin-left: -1em;
+  color: rgb(117, 43, 116);
+}
+.icon-loan .path4:before {
+  content: "\e916";
+  margin-left: -1em;
+  color: rgb(117, 43, 116);
+}
+.icon-menu:before {
+  content: "\e917";
+}
+.icon-password:before {
+  content: "\e918";
+  color: #878787;
+}
+.icon-plus .path1:before {
+  content: "\e919";
+  color: rgb(117, 43, 116);
+}
+.icon-plus .path2:before {
+  content: "\e91a";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-plus .path3:before {
+  content: "\e91b";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-rejected:before {
+  content: "\e91c";
+}
+.icon-rs .path1:before {
+  content: "\e91d";
+  color: rgb(117, 43, 116);
+}
+.icon-rs .path2:before {
+  content: "\e91e";
+  margin-left: -1em;
+  color: rgb(117, 43, 116);
+}
+.icon-rs .path3:before {
+  content: "\e91f";
+  margin-left: -1em;
+  color: rgb(74, 74, 74);
+}
+.icon-rs .path4:before {
+  content: "\e920";
+  margin-left: -1em;
+  color: rgb(74, 74, 74);
+}
+.icon-rs .path5:before {
+  content: "\e921";
+  margin-left: -1em;
+  color: rgb(74, 74, 74);
+}
+.icon-sedan-car-model .path1:before {
+  content: "\e922";
+  color: rgb(225, 183, 59);
+}
+.icon-sedan-car-model .path2:before {
+  content: "\e923";
+  margin-left: -1em;
+  color: rgb(225, 183, 59);
+}
+.icon-sedan-car-model .path3:before {
+  content: "\e924";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-user:before {
+  content: "\e925";
+  color: #878787;
+}
+.icon-add-nobg:before {
+  content: "\e926";
+}
+.icon-arrow-down:before {
+  content: "\e927";
+}
+.icon-arrow-right:before {
+  content: "\e928";
+}
+.icon-calculator:before {
+  content: "\e929";
+}
+.icon-delete:before {
+  content: "\e92a";
+}
+.icon-edit:before {
+  content: "\e92b";
+}
+.icon-refresh:before {
+  content: "\e92c";
+  color: #4a4a4a;
+}
+.icon-save-file:before {
+  content: "\e92d";
+}
+.icon-search:before {
+  content: "\e92e";
+}
+.icon-statment-del:before {
+  content: "\e92f";
+}

@@ -1,0 +1,23 @@
+<ag-grid-angular 
+    #agGrid
+    style="width: 100%; height: 700px;" 
+    class="ag-theme-balham"
+    [rowData]="rowData" 
+    [rowSelection]="rowSelection"
+    (selectionChanged)="onSelectionChanged($event)"
+    suppressClickEdit=true
+    [editType]="editType"
+    [columnDefs]="columnDefs"
+    [context]="context"
+    [frameworkComponents]="frameworkComponents"
+    [pagination]="true"
+    [paginationPageSize]= "21"
+    [floatingFilter]="true"
+    [animateRows]="true"
+    (rowSelected)="displayRows()"
+    >
+</ag-grid-angular>
+
+<!-- <button class="btn btn-primary " (click)="displayRows()">Selected Rows</button> -->
+
+

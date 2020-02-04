@@ -1,0 +1,91 @@
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center">
+  <div class="auth-box">
+    <div id="loginform">
+
+      <img src="/assets/img/logo.jpg" width="200" height="100" style="margin-left: 70px;" alt="Logo">
+      <h3><strong>Login Form</strong></h3>
+
+      <div class="row">
+        <div class="col-12">
+          <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)" novalidate>
+
+            <div class="input-group mb-3">
+              <input type="text" class="form-control form-control-lg" placeholder="Email" name="email"
+                formControlName="email" required aria-describedby="basic-addon1">
+            </div>
+            <div *ngIf="loginForm.controls['email'].invalid">
+              <div *ngIf="loginForm.controls['email'].errors.required">
+                Username is Required
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <input type="password" class="form-control form-control-lg" placeholder="password" name="password"
+                required formControlName="password" aria-label="password" aria-describedby="basic-addon1">
+            </div>
+            <div *ngIf="loginForm.controls['password'].invalid">
+              <div *ngIf="loginForm.controls['password'].errors.required">
+                Please Enter Password
+              </div>
+
+            </div>
+            <div class="form-group text-center">
+              <div class="col-xs-12 p-b-20">
+                <button type="submit" class="btn btn-info btn-bloack btn-lg" id="submit"
+                  [disabled]="loginForm.pristine || loginForm.invalid">Login</button>
+                <!-- <input type="submit" class="btn btn-info btn-block btn-lg" id="submit" name="login" value="Login"> -->
+              </div>
+            </div>
+          </form>
+
+          <!-- <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)" novalidate>
+                <div class="form-group">
+                  <input type="text" 
+                  class="form-control form-control-lg" 
+                  name="username" 
+                  formControlName="username" required 
+                    placeholder="Enter username">
+                </div>
+                <div *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="loginForm.controls['username'].errors.required">
+                    First Name is required.
+                  </div>
+                  
+                </div>
+                
+                <div class="form-group">
+                  <input type="password" 
+                  class="form-control form-control-lg" 
+                  formControlName="password" required name="password" 
+                  placeholder="Enter your Password"
+                    pattern="^[a-zA-Z0-9]+$" >
+                </div>
+                <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty ||
+                                             loginForm.controls['password'].touched)" class="alert alert-danger">
+                  <div *ngIf="loginForm.controls['password'].errors.required">
+                    Password is required
+                  </div>
+                  
+                </div>
+                <button type="submit" [disabled]="loginForm.pristine || loginForm.invalid" class="btn btn-info btn-block btn-lg" id="login">
+                  Sign Up
+                </button>
+              </form> -->
+
+
+          <div class="form-group">
+            <div class="col-sm-12 text-center">
+              Don't have an account?
+              <a routerLink="/register" class="text-info">
+                <b>Sign Up</b>
+              </a>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

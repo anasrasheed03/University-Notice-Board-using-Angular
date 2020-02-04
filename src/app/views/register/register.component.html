@@ -1,0 +1,127 @@
+<div class="main-wrapper">
+
+  <div class="auth-wrapper d-flex no-block justify-content-center align-items-center">
+    <div class="auth-box">
+      <div id="loginform">
+        <div>
+          <img src="/assets/img/logo.jpg" width="200" height="100" style="margin-left: 70px;" alt="Logo">
+          <h3><strong>Student Registration Form</strong></h3>
+
+        </div>
+        <form [formGroup]="UserForm" novalidate (ngSubmit)="onFormSubmit(UserForm.value)">
+        <div class="form-group">
+          <input type="text" 
+          class="form-control form-control-lg" 
+          name="f_name" 
+          formControlName="f_name"
+          required 
+          pattern="^[a-zA-Z]+$"
+          placeholder="Enter First Name">
+        </div>
+        <div *ngIf="UserForm.controls['f_name'].invalid && (UserForm.controls['f_name'].dirty || UserForm.controls['f_name'].touched)" class="alert alert-danger">
+            <div *ngIf="UserForm.controls['f_name'].errors.required">
+              First Name is required.
+            </div>
+            <div *ngIf="UserForm.controls['f_name'].errors.pattern">
+              Numbers not allowed.
+            </div>
+        </div>
+         <div class="form-group">
+            <input class="form-control form-control-lg" 
+            formControlName="l_name" 
+            required
+             name="l_name"
+            placeholder="Enter Last Name"
+            pattern="^[a-zA-Z]+$"
+            type="text">
+        </div>
+        <div *ngIf="UserForm.controls['l_name'].invalid && (UserForm.controls['l_name'].dirty || UserForm.controls['l_name'].touched)" class="alert alert-danger">
+            <div *ngIf="UserForm.controls['l_name'].errors.required">
+              Last name is required.
+            </div>
+            <div *ngIf="UserForm.controls['l_name'].errors.pattern">
+              Number is not allowed
+            </div>
+        </div>
+        <div class="form-group">
+          <input type="text"
+          class="form-control form-control-lg"
+          formControlName="email"
+           name="email"
+          required
+          placeholder="Enter your Email">
+          </div>
+          <div *ngIf="UserForm.controls['email'].invalid && (UserForm.controls['email'].dirty ||
+          UserForm.controls['email'].touched)" class="alert alert-danger">
+            <div *ngIf="UserForm.controls['email'].errors.required">
+              E-mail is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="password" 
+            class="form-control form-control-lg" 
+            formControlName="password" 
+            required 
+            name="password"
+            placeholder="Enter your Password"
+            pattern="^[a-zA-Z0-9]+$"
+            minlength="8"
+            maxlength="16">
+          </div>
+          <div *ngIf="UserForm.controls['password'].invalid && (UserForm.controls['password'].dirty ||
+                              UserForm.controls['password'].touched)" class="alert alert-danger">
+            <div *ngIf="UserForm.controls['password'].errors.required">
+              Password is required
+            </div>
+            <div *ngIf="UserForm.controls['password'].errors.minlength">
+              Name must be at least 8 characters long.
+            </div>
+            <div *ngIf="UserForm.controls['password'].errors.pattern">
+                Password Must contains the one number, one lowercase and one uppercase letter
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text"
+            class="form-control form-control-lg"
+            formControlName="cmsId"
+             name="cmsId"
+            required
+            placeholder="Enter your CMS Id">
+            </div>
+            <div *ngIf="UserForm.controls['cmsId'].invalid && (UserForm.controls['cmsId'].dirty ||
+            UserForm.controls['cmsId'].touched)" class="alert alert-danger">
+              <div *ngIf="UserForm.controls['cmsId'].errors.required">
+                CMS ID is required
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text"
+              class="form-control form-control-lg"
+              formControlName="phoneNum"
+               name="phoneNum"
+              required
+              placeholder="Enter your Phone #">
+              </div>
+              <div *ngIf="UserForm.controls['phoneNum'].invalid && (UserForm.controls['phoneNum'].dirty ||
+              UserForm.controls['phoneNum'].touched)" class="alert alert-danger">
+                <div *ngIf="UserForm.controls['phoneNum'].errors.required">
+                  Phone # is required
+                </div>
+              </div>
+        <button type="submit" 
+            [disabled]="UserForm.pristine || UserForm.invalid" class="btn btn-info btn-block btn-lg" id="register">
+            Sign Up
+        </button>
+  </form>
+      </div>
+      <div class="col-sm-12 text-center">
+        Already Register?
+        <a routerLink="" class="text-info">
+          <b>Click Here</b>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+

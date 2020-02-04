@@ -1,0 +1,308 @@
+<ng-container [ngSwitch]="type">
+  <ng-container *ngSwitchCase="'text'">
+    <ng-container *ngTemplateOutlet="text"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'number'">
+    <ng-container *ngTemplateOutlet="number"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'numberOpt'">
+    <ng-container *ngTemplateOutlet="numberOpt"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'email'">
+    <ng-container *ngTemplateOutlet="email"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'tel'">
+    <ng-container *ngTemplateOutlet="tel"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'password'">
+    <ng-container *ngTemplateOutlet="password"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'textarea'">
+    <ng-container *ngTemplateOutlet="textarea"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'date'">
+    <ng-container *ngTemplateOutlet="date"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'dateOpt'">
+    <ng-container *ngTemplateOutlet="dateOpt"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'select'">
+    <ng-container *ngTemplateOutlet="select"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'selectOpt'">
+    <ng-container *ngTemplateOutlet="selectOpt"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'checkbox'">
+    <ng-container *ngTemplateOutlet="checkbox"></ng-container>
+  </ng-container>
+</ng-container>
+
+
+
+<!-- Fields templates by type START -->
+
+<!-- Text templates START -->
+<ng-template #text>
+  <input ngModel [name]="name" [required]="required" [minlength]="minlength" [maxlength]="maxlength" [disabled]="disabled"
+    [readonly]="readonly" autocomplete="off" #input="ngModel" [placeholder]="placeholder || ''" (blur)="blur($event)" class="form-control"
+    [class.is-invalid]="input.errors && (input.dirty || input.touched) && required" [class.is-valid]="!input.errors && (input.touched) && required">
+  <span *ngIf="input.errors && (input.dirty || input.touched)" class="invalid-feedback">
+    <div *ngIf="input.errors.required">Required</div>
+  </span>
+</ng-template>
+<!-- Text templates END -->
+
+<!-- Textarea templates START -->
+<ng-template #textarea>
+  <textarea ngModel [rows]="rows" [name]="name" [required]="required" [maxlength]="maxlength" autocomplete="off" [readonly]="readonly"
+    #input="ngModel" [placeholder]="placeholder || ''" (blur)="blur($event)" class="form-control" [class.is-invalid]="input.errors && (input.dirty || input.touched) && required"
+    [class.is-valid]="!input.errors && (input.touched) && required"></textarea>
+  <span *ngIf="input.errors && (input.dirty || input.touched)" class="invalid-feedback">
+    <div *ngIf="input.errors.required">Required</div>
+  </span>
+</ng-template>
+<!-- Textarea templates END -->
+
+
+<!-- Select templates START -->
+<ng-template #select>
+  <select [ngModel]="value" [name]="name" [required]="required" (change)="selectEvent($event)" [disabled]="disabled" #input="ngModel"
+    class="form-control" [class.is-invalid]="input.errors && (input.dirty || input.touched) && required" [class.is-valid]="!input.errors && (input.touched) && required">
+    <option value="null" selected disabled>Select One</option>
+    <option [value]="option.codeId" *ngFor="let option of options; let idx = index">{{option.codeValue}}</option>
+  </select>
+  <span *ngIf="input.errors && (input.dirty || input.touched)" class="invalid-feedback">
+    <div *ngIf="input.errors.required">Required</div>
+  </span>
+</ng-template>
+<!-- Select templates END -->
+
+
+<!-- Optional Select templates START -->
+<ng-template #selectOpt>
+  <select [ngModel]="value" [name]="name" [required]="required" (change)="selectEvent($event)" [disabled]="disabled" #input="ngModel"
+    class="form-control" [class.is-invalid]="input.errors && (input.dirty || input.touched) && required" [class.is-valid]="!input.errors && (input.touched) && required">
+    <option value="null" selected>N/A</option>
+    <option [value]="option.codeId" *ngFor="let option of options; let idx = index">{{option.codeValue}}</option>
+  </select>
+  <span *ngIf="input.errors && (input.dirty || input.touched)" class="invalid-feedback">
+    <div *ngIf="input.errors.required">Required</div>
+  </span>
+</ng-template>
+<!--Optional Select templates END -->
+
+
+<!-- Number templates START -->
+<ng-template #number>
+  <input number ngModel [name]="name" pattern="[0-9]*" [required]="required" autocomplete="off" [disabled]="disabled" [maxlength]="maxlength"
+    [minlength]="minlength" #input="ngModel" [placeholder]="placeholder || ''" (blur)="blur($event)" class="form-control" [class.is-invalid]="input.errors && (input.dirty || input.touched) && required"
+    [class.is-valid]="!input.errors  && (input.dirty || input.touched) && required">
+  <span *ngIf="input.errors && (input.dirty || input.touched)" class="invalid-feedback">
+    <div *ngIf="input.errors.required">Required</div>
+    <div *ngIf="input.errors.pattern">Only numbers are allowed</div>
+    <div *ngIf="(input.errors.maxlength || input.errors.minlength) && !(input.errors.pattern)">Digits must be of min {{minlength}} && max {{maxlength}} numbers</div>
+    <div *ngIf="input.errors.equalTo && input.value">{{equalToErrorMessage}}</div>
+    <div *ngIf="input.errors.gte && input.value">{{ greaterThanOrEqualErrorMessage }}</div>
+    <div *ngIf="input.errors.gt && input.value">{{ greaterThanErrorMessage }}</div>
+    <div *ngIf="input.errors.lte && input.value">{{ lessThanOrEqualErrorMessage }}</div>
+    <div *ngIf="input.errors.lt && input.value">{{ lessThanErrorMessage }}</div>
+  </span>
+
+</ng-template>
+<!-- Number templates END -->
+
+<!-- Number Optional templates START -->
+<ng-template #numberOpt>
+  <input number ngModel [name]="name" pattern="[0-9]*" [required]="required" autocomplete="off" [disabled]="disabled" [maxlength]="maxlength"
+    [minlength]="minlength" #input="ngModel" [placeholder]="placeholder || ''" (blur)="blur($event)" class="form-control" [class.is-invalid]="input.errors && (input.dirty || input.touched)"
+    [class.is-valid]="!input.errors  && (input.dirty || input.touched)">
+  <span *ngIf="input.errors && (input.dirty || input.touched)" class="invalid-feedback">
+    <div *ngIf="input.errors.required">Required</div>
+    <div *ngIf="input.errors.pattern">Only numbers are allowed</div>
+    <div *ngIf="(input.errors.maxlength || input.errors.minlength) && !(input.errors.pattern)">Digits must be of min {{minlength}} && max {{maxlength}} numbers</div>
+    <div *ngIf="input.errors.equalTo && input.value">{{equalToErrorMessage}}</div>
+    <div *ngIf="input.errors.gte && input.value">{{ greaterThanOrEqualErrorMessage }}</div>
+    <div *ngIf="input.errors.gt && input.value">{{ greaterThanErrorMessage }}</div>
+    <div *ngIf="input.errors.lte && input.value">{{ lessThanOrEqualErrorMessage }}</div>
+    <div *ngIf="input.errors.lt && input.value">{{ lessThanErrorMessage }}</div>
+  </span>
+
+</ng-template>
+<!-- Number Optional templates END -->
+
+<!-- Email template START -->
+<ng-template #email>
+  <ng-container *ngIf="mode!='compare' then emailField else emailConfirmField"></ng-container>
+  <span *ngIf="input?.errors && (input?.dirty || input?.touched)" class="invalid-feedback">
+    <div *ngIf="input?.errors.required">Required</div>
+    <div *ngIf="input?.errors.email">Enter valid email</div>
+    <div *ngIf="input?.errors.equalTo && !input?.errors.email && input?.value">{{ equalToErrorMessage }}</div>
+  </span>
+  <ng-template #emailField>
+    <input ngModel [name]="name" [required]="required" autocomplete="off" ngvemail [readonly]="readonly" [maxlength]="maxlength"
+      #input="ngModel" [placeholder]="placeholder || ''" (blur)="blur($event)" class="form-control" [class.is-invalid]="input.errors && (input.dirty || input.touched) && required"
+      [class.is-valid]="!input.errors && (input.touched) && required">
+  </ng-template>
+  <ng-template #emailConfirmField>
+    <input ngModel [name]="name" [required]="required" autocomplete="off" preventCutCopyPaste ngvemail [readonly]="readonly"
+      [maxlength]="maxlength" #input="ngModel" [placeholder]="placeholder || ''" (blur)="blur($event)" class="form-control"
+      [class.is-invalid]="input.errors && (input.dirty || input.touched) && required" [class.is-valid]="!input.errors && (input.touched) && required">
+  </ng-template>
+</ng-template>
+<!-- Email template END -->
+
+<!-- Tel template START -->
+<ng-template #tel>
+  <input type="tel" ngModel [name]="name" [required]="required" autocomplete="off" [pattern]="MOBILE_REGEX" [readonly]="readonly"
+    [maxlength]="maxlength" #input="ngModel" [placeholder]="placeholder || ''" (blur)="blur($event)" (keypress)="keyPress($event)"
+    class="form-control" [class.is-invalid]="input.errors && (input.dirty || input.touched) && required" [class.is-valid]="!input.errors && (input.touched) && required">
+  <span *ngIf="input.errors && (input.dirty || input.touched)" class="invalid-feedback">
+    <div *ngIf="input.errors.required">Required</div>
+    <div *ngIf="input.errors.pattern?.requiredPattern">Enter valid mobile number</div>
+  </span>
+</ng-template>
+<!-- Tel template END -->
+
+<!-- Password template START -->
+<ng-template #password>
+  <ng-container *ngIf="mode!='compare' then passwordField else passwordConfirmField"></ng-container>
+
+
+
+  <ng-template #passwordField>
+    <div class="input-group">
+      <input ngModel [type]="passwordHide ? 'password' : 'text'" [name]="name" [required]="required" autocomplete="off" [readonly]="readonly"
+        [maxlength]="maxlength" #input="ngModel" [placeholder]="placeholder || ''" (blur)="blur($event)" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@_-]).{8,}"
+        class="form-control" [class.is-invalid]="input.errors && (input.dirty || input.touched) && required" [class.is-valid]="!input.errors && (input.touched) && required">
+      <span class="input-group-prepend">
+        <span class="input-group-text">
+          <mat-icon matSuffix (click)="passwordHide = !passwordHide">{{passwordHide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        </span>
+      </span>
+      <span *ngIf="input?.errors && (input.dirty || input.touched)" class="invalid-feedback">
+        <div *ngIf="input?.errors.required">Required</div>
+        <div *ngIf="input?.errors.equalTo && input?.value">{{ equalToErrorMessage }}</div>
+        <div *ngIf="input?.errors.pattern?.requiredPattern">Password should be
+          <ul>
+            <li>option a </li>
+            <li>option b </li>
+            <li>option c </li>
+            <li>option d </li>
+            <li>option e </li>
+          </ul>
+        </div>
+      </span>
+    </div>
+  </ng-template>
+  <ng-template #passwordConfirmField>
+    <div class="input-group">
+      <input ngModel [type]="passwordHide ? 'password' : 'text'" [name]="name" [required]="required" autocomplete="off" [readonly]="readonly"
+        [maxlength]="maxlength" #input="ngModel" [placeholder]="placeholder || ''" (blur)="blur($event)" preventCutCopyPaste
+        class="form-control" [class.is-invalid]="input.errors && (input.dirty || input.touched) && required" [class.is-valid]="!input.errors && (input.touched) && required">
+      <span class="input-group-prepend">
+        <span class="input-group-text">
+          <mat-icon matSuffix (click)="passwordHide = !passwordHide">{{passwordHide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        </span>
+      </span>
+      <span *ngIf="input?.errors && (input.dirty || input.touched)" class="invalid-feedback">
+        <div *ngIf="input?.errors.required">Required</div>
+        <div *ngIf="input?.errors.equalTo && input?.value">{{ equalToErrorMessage }}</div>
+        <div *ngIf="input?.errors.pattern?.requiredPattern">Password should be
+          <ul>
+            <li>option a </li>
+            <li>option b </li>
+            <li>option c </li>
+            <li>option d </li>
+            <li>option e </li>
+          </ul>
+        </div>
+      </span>
+    </div>
+  </ng-template>
+</ng-template>
+<!-- Password template END -->
+
+<!-- Date template START -->
+<ng-template #date>
+  <!-- <mat-form-field> -->
+  <div class="input-group">
+    <input type="date" ngModel [readonly]="readonly" [name]="name" [required]="required" #input="ngModel" class="form-control"
+      (blur)="blur($event)" [class.is-invalid]="input.errors && (input.dirty || input.touched) && required" [class.is-valid]="!input.errors && (input.touched) && required">
+    <!-- <mat-datepicker-toggle matSuffix [for]="inputDatePicker">
+ 
+    </mat-datepicker-toggle> -->
+    <span class="input-group-prepend">
+      <span class="input-group-text">
+        <!-- <mat-datepicker #inputDatePicker></mat-datepicker> -->
+        <i class="fa fa-calendar"></i>
+      </span>
+    </span>
+    <span *ngIf="input.errors && (input.dirty || input.touched)" class="invalid-feedback">
+      <div *ngIf="input.errors.required">
+        Required
+      </div>
+      <div *ngIf="input.errors.equalTo && input?.value">
+        {{ equalToErrorMessage }}
+      </div>
+      <div *ngIf="input.errors.maxDate && input?.value">
+        {{ lessThanOrEqualErrorMessage}}
+      </div>
+      <div *ngIf="input.errors.minDate && input?.value">
+        {{greaterThanOrEqualErrorMessage}}
+      </div>
+    </span>
+  </div>
+
+  <!-- </mat-form-field> -->
+</ng-template>
+<!-- Date template END -->
+
+
+
+
+<!-- Date template START -->
+<ng-template #dateOpt>
+  <!-- <mat-form-field> -->
+  <div class="input-group">
+    <input type="date" ngModel [disabled]="disabled" [readonly]="readonly" [name]="name" [required]="required" #input="ngModel"
+      class="form-control" (blur)="blur($event)" [class.is-invalid]="input.errors && (input.dirty || input.touched) && input.value"
+      [class.is-valid]="!input.errors && (input.touched) && input.value">
+    <!-- <mat-datepicker-toggle matSuffix [for]="inputDatePicker">
+   
+      </mat-datepicker-toggle> -->
+    <span class="input-group-prepend">
+      <span class="input-group-text">
+        <!-- <mat-datepicker #inputDatePicker></mat-datepicker> -->
+        <i class="fa fa-calendar"></i>
+      </span>
+    </span>
+    <span *ngIf="input.errors && (input.dirty || input.touched)" class="invalid-feedback">
+      <div *ngIf="input.errors.required">
+        Required
+      </div>
+      <div *ngIf="input.errors.equalTo && input?.value">
+        {{ equalToErrorMessage }}
+      </div>
+      <div *ngIf="input.errors.maxDate && input?.value">
+        {{ lessThanOrEqualErrorMessage}}
+      </div>
+      <div *ngIf="input.errors.minDate && input?.value">
+        {{greaterThanOrEqualErrorMessage}}
+      </div>
+    </span>
+  </div>
+
+  <!-- </mat-form-field> -->
+</ng-template>
+<!-- Date template END -->
+
+
+
+<!-- Tel template START -->
+<ng-template #checkbox>
+  <input ngModel [name]="name" class="form-check-input" [disabled]="disabled" [readonly]="readonly" type="checkbox">
+</ng-template>
+<!-- Tel template END -->
+
+
+<!-- Fields templates by type END -->

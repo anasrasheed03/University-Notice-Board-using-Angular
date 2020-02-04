@@ -1,0 +1,43 @@
+#register, #submit{
+  background-color: #f26224;
+}
+
+
+
+
+@-webkit-keyframes rotateInUpRight {
+ from {
+   -webkit-transform-origin: right bottom;
+   transform-origin: right bottom;
+   -webkit-transform: rotate3d(0, 0, 1, -90deg);
+   transform: rotate3d(0, 0, 1, -90deg);
+   opacity: 0; }
+ to {
+   -webkit-transform-origin: right bottom;
+   transform-origin: right bottom;
+   -webkit-transform: none;
+   transform: none;
+   opacity: 1; } }
+
+
+.auth-wrapper {
+ min-height: 100vh;
+ position: relative; }
+ .auth-wrapper .auth-box {
+   background: #fff;
+   padding: 20px;
+   box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+   max-width: 400px;
+   width: 100%;
+   margin: 10% 0; }
+   .auth-wrapper .auth-box .logo {
+     text-align: center; }
+   
+#register, #submit{
+  background-color: #f26224;
+}
+
+
+.navbar-toggler-icon{
+ color: #fd7e14;
+}

@@ -1,0 +1,6 @@
+export interface EmploymentType{
+  CURRENT,
+  PREVIOUS,
+  OTHER_INCOME_SOURCE,
+  APPLICATION_HAS_COBORROWER
+}

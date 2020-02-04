@@ -1,0 +1,127 @@
+<div class="animated fadeIn">
+  <form [formGroup]="simpleForm" novalidate (ngSubmit)="onSubmit()" method="post" class="form-horizontal">
+
+    <div class="row" id="contentToConvert">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+              <br>
+            <strong>Create Notification</strong>
+            </div>
+          <div class="card-body">
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="hf-versionControl">Notification Type</label>
+              <div class="col-md-7">
+                      <select formControlName="notification_Type"  class="form-control" [ngClass]="{ 'is-invalid': (simpleForm.get('notification_Type').touched || simpleForm.get('notification_Type').dirty) && simpleForm.get('notification_Type').errors }">
+                        <option [value]="notification.value" *ngFor="let notification of notifcationType">{{notification.name}}</option>
+                      </select>
+                <span
+                  *ngIf="simpleForm.get('notification_Type').errors && (simpleForm.get('notification_Type').dirty || simpleForm.get('notification_Type').touched)"
+                  class="invalid-feedback">
+                  <div *ngIf="simpleForm.get('notification_Type').errors.required">Required</div>
+                </span>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="hf-project">Notification Name</label>
+              <div class="col-md-7">                             
+                 <input type="text" id="hf-project" required='true' name="notification_name" class="form-control projectCode" placeholder="notification Name"
+                 formControlName="notification_name" required autofocus
+                 [ngClass]="{ 'is-invalid': (simpleForm.get('notification_name').touched || simpleForm.get('notification_name').dirty) && simpleForm.get('notification_name').errors }">
+                <span
+                  *ngIf="simpleForm.get('notification_name').errors && (simpleForm.get('notification_name').dirty || simpleForm.get('notification_name').touched)"
+                  class="invalid-feedback">
+                  <div *ngIf="simpleForm.get('notification_name').errors.required">Required</div>
+                </span>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="hf-reviewer">Notification Code</label>
+              <div class="col-md-7">                
+                <input type="text" id="hf-project" required='true'  name="hf-project" class="form-control projectCode" placeholder="notification Code"
+                formControlName="notification_code" required autofocus
+                [ngClass]="{ 'is-invalid': (simpleForm.get('notification_code').touched || simpleForm.get('notification_code').dirty) && simpleForm.get('notification_code').errors }">                
+                <span
+                  *ngIf="simpleForm.get('notification_code').errors && (simpleForm.get('notification_code').dirty || simpleForm.get('notification_code').touched)"
+                  class="invalid-feedback">
+                  <div *ngIf="simpleForm.get('notification_code').errors.required">Required</div>
+                </span>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="hf-reviewer">Notifcation Message</label>
+              <div class="col-md-7">                
+                <textarea type="text" rows="8" id="hf-notes" name="hf-notes" class="form-control"
+                  placeholder="Enter Notifcation Message.." autocomplete="notification_message" formControlName="notification_message" required 
+                  [ngClass]="{ 'is-invalid': (simpleForm.get('notification_message').touched || simpleForm.get('notification_message').dirty) && simpleForm.get('notification_message').errors }"></textarea>
+                <span
+                  *ngIf="simpleForm.get('notification_message').errors && (simpleForm.get('notification_message').dirty || simpleForm.get('notification_message').touched)"
+                  class="invalid-feedback">
+                  <div *ngIf="simpleForm.get('notification_message').errors.required">Required</div>
+                </span>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="hf-reviewer">Notifcation Date</label>
+              <div class="col-md-7">                
+                <input type="date" id="hf-project" [max]="todaysDate" required='true'  name="hf-project" class="form-control projectCode" placeholder="notification Code"
+                formControlName="notification_date" required autofocus
+                [ngClass]="{ 'is-invalid': (simpleForm.get('notification_date').touched || simpleForm.get('notification_date').dirty) && simpleForm.get('notification_date').errors }">                
+                <span
+                  *ngIf="simpleForm.get('notification_date').errors && (simpleForm.get('notification_date').dirty || simpleForm.get('notification_date').touched)"
+                  class="invalid-feedback">
+                  <div *ngIf="simpleForm.get('notification_date').errors.required">Required</div>
+                </span>
+              </div>
+            </div>
+            <div class="change_img_btn">
+              <input #fileUploader (change)="changeFileSelection($event.target.files)" type="file"
+                id="attachment">
+              <div class="change-btn" (click)="fileUploader.click()">
+                <mat-icon>file_upload</mat-icon>
+                Change
+              </div>
+            </div>
+            
+
+          </div>
+          <div class="card-footer" *ngIf="readMode">
+            <button type="submit" class="btn btn-sm btn-primary" [disabled]="simpleForm.invalid">
+              <i class="fa fa-dot-circle-o"></i> Submit</button>
+            <button type="button" class="btn btn-sm btn-danger" (click)="onReset()">
+              <i class="fa fa-ban"></i> Reset</button>
+          </div>
+        </div>
+      </div>
+      <!--/.col-->
+    </div>
+    <!--/.row-->
+  </form>
+  <!-- <div bsModal #primaryModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-primary" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Modal title</h4>
+          <button type="button" class="close" (click)="primaryModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>One fine body&hellip;</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="primaryModal.hide()">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+  <!-- </div>/.modal-content -->
+  <!-- </div>/.modal-dialog -->
+  <!-- </div>/.modal -->
+</div>
+<!-- <button type="button" class="btn btn-primary mr-1" data-toggle="modal" (click)="primaryModal.show()">
+  Primary modal
+</button> -->

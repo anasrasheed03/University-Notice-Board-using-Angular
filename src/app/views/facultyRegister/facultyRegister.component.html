@@ -1,0 +1,141 @@
+<div class="main-wrapper">
+
+  <div class="auth-wrapper d-flex no-block justify-content-center align-items-center">
+    <div class="auth-box">
+      <div id="loginform">
+        <div>
+          <img src="/assets/img/logo.jpg" width="200" height="100" style="margin-left: 70px;" alt="Logo">
+          <h3><strong>Transport/Admin Staff Registration Form</strong></h3>
+
+        </div>
+        <form [formGroup]="UserForm" novalidate (ngSubmit)="onFormSubmit(UserForm.value)">
+        <div class="form-group">
+          <input type="text" 
+          class="form-control form-control-lg" 
+          name="fname" 
+          formControlName="fname"
+          required 
+          pattern="^[a-zA-Z]+$"
+          placeholder="Enter First Name">
+        </div>
+        <div *ngIf="UserForm.controls['fname'].invalid && (UserForm.controls['fname'].dirty || UserForm.controls['fname'].touched)" class="alert alert-danger">
+            <div *ngIf="UserForm.controls['fname'].errors.required">
+              First Name is required.
+            </div>
+            <div *ngIf="UserForm.controls['fname'].errors.pattern">
+              Numbers not allowed.
+            </div>
+        </div>
+         <div class="form-group">
+            <input class="form-control form-control-lg" 
+            formControlName="lname" 
+            required
+             name="lname"
+            placeholder="Enter Last Name"
+            pattern="^[a-zA-Z]+$"
+            type="text">
+        </div>
+        <div *ngIf="UserForm.controls['lname'].invalid && (UserForm.controls['lname'].dirty || UserForm.controls['lname'].touched)" class="alert alert-danger">
+            <div *ngIf="UserForm.controls['lname'].errors.required">
+              Last name is required.
+            </div>
+            <div *ngIf="UserForm.controls['lname'].errors.pattern">
+              Number is not allowed
+            </div>
+        </div>
+        <div class="form-group">
+          <input type="text"
+          class="form-control form-control-lg"
+          formControlName="email"
+           name="email"
+          required
+          placeholder="Enter your Email">
+          </div>
+          <div *ngIf="UserForm.controls['email'].invalid && (UserForm.controls['email'].dirty ||
+          UserForm.controls['email'].touched)" class="alert alert-danger">
+            <div *ngIf="UserForm.controls['email'].errors.required">
+              E-mail is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="password" 
+            class="form-control form-control-lg" 
+            formControlName="password" 
+            required 
+            name="password"
+            placeholder="Enter your Password"
+            pattern="^[a-zA-Z0-9]+$"
+            minlength="8"
+            maxlength="16">
+          </div>
+          <div *ngIf="UserForm.controls['password'].invalid && (UserForm.controls['password'].dirty ||
+                              UserForm.controls['password'].touched)" class="alert alert-danger">
+            <div *ngIf="UserForm.controls['password'].errors.required">
+              Password is required
+            </div>
+            <div *ngIf="UserForm.controls['password'].errors.minlength">
+              Name must be at least 8 characters long.
+            </div>
+            <div *ngIf="UserForm.controls['password'].errors.pattern">
+                Password Must contains the one number, one lowercase and one uppercase letter
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text"
+            class="form-control form-control-lg"
+            formControlName="staffId"
+             name="staffId"
+            required
+            placeholder="Enter your Staff Id">
+            </div>
+            <div *ngIf="UserForm.controls['staffId'].invalid && (UserForm.controls['staffId'].dirty ||
+            UserForm.controls['staffId'].touched)" class="alert alert-danger">
+              <div *ngIf="UserForm.controls['staffId'].errors.required">
+                Staff ID is required
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text"
+              class="form-control form-control-lg"
+              formControlName="designation"
+               name="designation"
+              required
+              placeholder="Enter your job title">
+              </div>
+              <div *ngIf="UserForm.controls['designation'].invalid && (UserForm.controls['designation'].dirty ||
+              UserForm.controls['designation'].designation)" class="alert alert-danger">
+                <div *ngIf="UserForm.controls['designation'].errors.required">
+                  Designation is required
+                </div>
+              </div>
+            <div class="form-group">
+              <input type="text"
+              class="form-control form-control-lg"
+              formControlName="phoneNum"
+               name="phoneNum"
+              required
+              placeholder="Enter your Phone #">
+              </div>
+              <div *ngIf="UserForm.controls['phoneNum'].invalid && (UserForm.controls['phoneNum'].dirty ||
+              UserForm.controls['phoneNum'].touched)" class="alert alert-danger">
+                <div *ngIf="UserForm.controls['phoneNum'].errors.required">
+                  Phone # is required
+                </div>
+              </div>
+        <button type="submit" 
+            [disabled]="UserForm.pristine || UserForm.invalid" class="btn btn-info btn-block btn-lg" id="register">
+            Sign Up
+        </button>
+  </form>
+      </div>
+      <div class="col-sm-12 text-center">
+        Already Register?
+        <a routerLink="" class="text-info">
+          <b>Click Here</b>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+

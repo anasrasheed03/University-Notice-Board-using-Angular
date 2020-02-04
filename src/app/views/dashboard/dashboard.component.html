@@ -1,0 +1,303 @@
+<div class="animated fadeIn">
+
+    <div class="row">
+        <div class="col-lg-12">
+                    <div class="card  bg-light no-card-border">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                
+                                <div>
+                                    <h3 class="m-b-0">Welcome back! {{userData?.fname + ' ' + userData?.lname}}</h3>
+                                    
+                                    <span>{{today | date:'fullDate'}}</span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+</div>
+
+  <div class="row" *ngIf="userData?.role !== '3'">
+    <div class="col-sm-6 col-lg-3">
+      <div class="card text-white bg-primary">
+        <div class="card-body pb-0">
+          <div class="text-value">{{totalStudents}}</div>
+          <div>Registered Students</div>
+        </div>
+        <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="card text-white bg-info">
+        <div class="card-body pb-0">
+          <div class="text-value">{{totalTeacher}}</div>
+          <div>Registered Teachers</div>
+        </div>
+        <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="card text-white bg-warning">
+        <div class="card-body pb-0">
+          <div class="text-value">{{totalFaculty}}</div>
+          <div>Register Staff</div>
+        </div>
+        <div class="chart-wrapper mt-3" style="height:70px;">
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="card text-white bg-danger">
+        <div class="card-body pb-0">
+          <div class="text-value">{{totalNotifications}}</div>
+          <div>Total Notifications</div>
+        </div>
+        <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+
+  <div class="row">
+    <div class="card-header">
+      Recent Added Notifications
+      <div class="card-header-actions">
+        <a href="javascript:;">
+          <small class="text-muted"></small>
+        </a>
+      </div>
+    </div>
+    <div class="card-body">
+  <table class="table table-striped" [mfData]="notificationData" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <thead>
+    <tr>
+        <th>
+            <mfDefaultSorter by="notification_type">Type</mfDefaultSorter>
+        </th>
+        <th>
+            <mfDefaultSorter by="notification_name">Name</mfDefaultSorter>
+        </th>
+        <th>
+            <mfDefaultSorter by="notification_message">Message</mfDefaultSorter>
+        </th>
+        <th>
+            <mfDefaultSorter by="notification_date">Date</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="notifier_name">By</mfDefaultSorter>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of mf.data">
+        <td>{{item.notification_type | uppercase}}</td>
+        <td>{{item.notification_name}}</td>
+        <td>{{item.notification_message}}</td>
+        <td>{{item.notification_date }}</td>
+        <td>{{item.notifier_name }}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="4">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        </td>
+    </tr>
+    </tfoot>
+  </table>
+  </div>
+  </div>
+
+  <div class="row" *ngIf="userData?.role !== '3'">
+      <div class="card-header">
+        Recenlty Registered Students
+        <div class="card-header-actions">
+          <a href="javascript:;">
+            <small class="text-muted"></small>
+          </a>
+        </div>
+      </div>
+      <div class="card-body">
+    <table class="table table-striped" [mfData]="studentData" #mf="mfDataTable" [mfRowsOnPage]="5">
+      <thead>
+      <tr>
+          <th>
+              <mfDefaultSorter by="name">Name</mfDefaultSorter>
+          </th>
+          <th>
+              <mfDefaultSorter by="email">Email</mfDefaultSorter>
+          </th>
+          <th>
+              <mfDefaultSorter by="semester">Semester</mfDefaultSorter>
+          </th>
+          <th>
+              <mfDefaultSorter by="cmsId">CMS ID</mfDefaultSorter>
+          </th>
+          <th>
+            <mfDefaultSorter by="cmsId">Roll Number</mfDefaultSorter>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of mf.data">
+          <td>{{item.f_name+item.l_name | uppercase}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.semesterNum}}</td>
+          <td>{{item.cms_id }}</td>
+          <td>{{item.roll_number }}</td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+          <td colspan="4">
+              <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+          </td>
+      </tr>
+      </tfoot>
+  </table>
+  </div>
+  </div>
+
+  <div class="row" *ngIf="userData?.role !== '3'">
+    <div class="card-header">
+      Recenlty Registered Teachers
+      <div class="card-header-actions">
+        <a href="javascript:;">
+          <small class="text-muted"></small>
+        </a>
+      </div>
+    </div>
+    <div class="card-body">
+  <table class="table table-striped" [mfData]="teacherData" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <thead>
+    <tr>
+        <th>
+            <mfDefaultSorter by="name">Name</mfDefaultSorter>
+        </th>
+        <th>
+            <mfDefaultSorter by="email">Email</mfDefaultSorter>
+        </th>
+        <th>
+            <mfDefaultSorter by="semester">Designation</mfDefaultSorter>
+        </th>
+        <th>
+            <mfDefaultSorter by="cmsId">Faculty ID</mfDefaultSorter>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of mf.data">
+        <td>{{item.f_name+item.l_name | uppercase}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.designation}}</td>
+        <td>{{item.faculty_id }}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="4">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        </td>
+    </tr>
+    </tfoot>
+</table>
+</div>
+</div>
+
+<div class="row" *ngIf="userData?.role !== '3'">
+  <div class="card-header">
+    Recenlty Registered Staff
+    <div class="card-header-actions">
+      <a href="javascript:;">
+        <small class="text-muted"></small>
+      </a>
+    </div>
+  </div>
+  <div class="card-body">
+<table class="table table-striped" [mfData]="staffData" #mf="mfDataTable" [mfRowsOnPage]="5">
+  <thead>
+  <tr>
+      <th>
+          <mfDefaultSorter by="name">Name</mfDefaultSorter>
+      </th>
+      <th>
+          <mfDefaultSorter by="email">Email</mfDefaultSorter>
+      </th>
+      <th>
+          <mfDefaultSorter by="semester">Job Title</mfDefaultSorter>
+      </th>
+      <th>
+          <mfDefaultSorter by="cmsId">Staff ID</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="cmsId">Department</mfDefaultSorter>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of mf.data">
+      <td>{{item.f_name+item.l_name | uppercase}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.job_title}}</td>
+      <td>{{item.staff_id }}</td>
+      <td>{{item.department }}</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+      <td colspan="4">
+          <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+      </td>
+  </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+  <!--/.row-->
+  <div class="card-columns cols-2" *ngIf="userData?.enitity_type == 'E2'">
+    <div class="card">
+      <div class="card-header">
+        Live Event Data
+        <div class="card-header-actions">
+          <a href="javascript:;">
+            <small class="text-muted"></small>
+          </a>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrapper">
+          <canvas baseChart class="chart" [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+            [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+          Total Donation Data
+          <div class="card-header-actions">
+            <a href="javascript:;">
+              <small class="text-muted"></small>
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="chart-wrapper">
+            <canvas baseChart class="chart"
+            [data]="pieChartData"
+            [labels]="pieChartLabels"
+            [chartType]="pieChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

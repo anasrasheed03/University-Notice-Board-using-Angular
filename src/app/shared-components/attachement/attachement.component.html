@@ -1,0 +1,105 @@
+<div class="col-lg-12">
+  <table class="table table-bordered table-striped " [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="10">
+
+    <thead>
+
+      <tr>
+        <th style="width: 40%">
+          <mfDefaultSorter by="documentTitle">Document Title</mfDefaultSorter>
+        </th>
+        <th style="width: 50%">
+          <mfDefaultSorter by="fileName">File name</mfDefaultSorter>
+        </th>
+        <th style="width: 10%">
+          <mfDefaultSorter by="delete"></mfDefaultSorter>
+        </th>
+      </tr>
+      
+    </thead>
+    <tbody>
+      <tr *ngFor="let attachment of attachments; let i = index">
+        <td>
+          <div class="form-group row">
+            <div class="col-md-12">
+              <select id="select1" #documentTitle class="form-control" (change)="checkDocTyoe(i)" [(ngModel)]="attachment.docTitle">
+                <option [selected]="true" value="">Select one</option>
+                <option value="0">Photograph</option>
+                <option value="1">CNIC</option>
+                <option value="2">Pay Slip</option>
+              </select>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="form-group row">
+
+            <div class="col-md-9">
+                <input style="display:none" type="file" #fileUploader id="file-input" name="file-input"  (change)="changeFileSelection($event, infoModal, i)">
+                <button [disabled]="attachment.docTitle == null || attachment.docTitle == '' "    (click)="fileUploader.click()"> Choose File
+                </button>
+                <label>{{attachment?.file?.name}}</label>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="form-group row">
+            <div class="col-md-12">
+              <button class="btn btn-danger" (click)="deleteAttachment(deleteAttachmentModal, infoModal, i)"><i class="cui-trash icons font-2l d-block "></i></button>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+  <div class="card-footer text-right">
+    <div class="col-12">
+      <button type="button" class="btn btn-primary mr-1" (click)="addAttachment()">ADD</button>
+    </div>
+  </div>
+</div>
+
+
+<div bsModal #deleteAttachmentModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-info" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{modalTitle}}</h4>
+          <button type="button" class="close" (click)="deleteAttachmentModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+              <h6>
+                  {{modalMessage}}
+              </h6>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="deleteAttachment(deleteAttachmentModal, infoModal)">Confirm</button>
+          <button type="button" class="btn btn-info" (click)="deleteAttachmentModal.hide()">Cancel</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<div bsModal #infoModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-info" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{modalTitle}}</h4>
+          <button type="button" class="close" (click)="infoModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+              <h6>
+                  {{modalMessage}}
+              </h6>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" (click)="infoModal.hide()">Close</button>
+        </div>
+      </div>
+    </div>
+</div>

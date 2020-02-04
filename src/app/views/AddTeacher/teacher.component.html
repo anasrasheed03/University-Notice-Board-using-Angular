@@ -1,0 +1,182 @@
+<div class="animated fadeIn">
+  <form [formGroup]="simpleForm" novalidate (ngSubmit)="onSubmit()" method="post" class="form-horizontal">
+
+    <div class="row" id="contentToConvert">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+              <br>
+            <strong>Teacher</strong> Information
+          </div>
+          <div class="card-body">
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="hf-project">First Name </label>
+              <div class="col-md-9">                             
+                 <input type="text" id="hf-project" required='true' name="firstName" class="form-control projectCode" placeholder="Enter First Name.."
+                 formControlName="firstName" required autofocus
+                 [ngClass]="{ 'is-invalid': (simpleForm.get('firstName').touched || simpleForm.get('firstName').dirty) && simpleForm.get('firstName').errors }">
+                <span
+                  *ngIf="simpleForm.get('firstName').errors && (simpleForm.get('firstName').dirty || simpleForm.get('firstName').touched)"
+                  class="invalid-feedback">
+                  <div *ngIf="simpleForm.get('firstName').errors.required">Required</div>
+                </span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="hf-project">Last Name </label>
+              <div class="col-md-9">                             
+                 <input type="text" id="hf-project" required='true' name="lastName" class="form-control projectCode" placeholder="Enter Last Name.."
+                 formControlName="lastName" required autofocus
+                 [ngClass]="{ 'is-invalid': (simpleForm.get('lastName').touched || simpleForm.get('lastName').dirty) && simpleForm.get('lastName').errors }">
+                <span
+                  *ngIf="simpleForm.get('lastName').errors && (simpleForm.get('lastName').dirty || simpleForm.get('lastName').touched)"
+                  class="invalid-feedback">
+                  <div *ngIf="simpleForm.get('lastName').errors.required">Required</div>
+                </span>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="hf-project">CNIC</label>
+              <div class="col-md-9">                             
+                 <input type="text" id="hf-project" required='true' name="cnic" class="form-control projectCode" placeholder="Enter CNIC No.."
+                 formControlName="cnic" required autofocus
+                 [ngClass]="{ 'is-invalid': (simpleForm.get('cnic').touched || simpleForm.get('cnic').dirty) && simpleForm.get('cnic').errors }">
+                <span
+                  *ngIf="simpleForm.get('cnic').errors && (simpleForm.get('cnic').dirty || simpleForm.get('cnic').touched)"
+                  class="invalid-feedback">
+                  <div *ngIf="simpleForm.get('cnic').errors.required">Required</div>
+                </span>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="hf-reviewer">Email</label>
+              <div class="col-md-9">                
+                <input type="text" id="hf-project" required='true' [readonly]="editCase" name="hf-project" class="form-control projectCode" placeholder="Email.."
+                formControlName="email" required autofocus
+                [ngClass]="{ 'is-invalid': (simpleForm.get('email').touched || simpleForm.get('email').dirty) && simpleForm.get('email').errors }">                
+                <span
+                  *ngIf="simpleForm.get('email').errors && (simpleForm.get('email').dirty || simpleForm.get('email').touched)"
+                  class="invalid-feedback">
+                  <div *ngIf="simpleForm.get('email').errors.required">Required</div>
+                </span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="hf-coder">Faculty ID</label>
+              <div class="col-md-9">
+                <input type="text" id="hf-project" required='true' name="hf-project" class="form-control projectCode" placeholder="Enter Faculty ID"
+                formControlName="facultyId" required autofocus
+                [ngClass]="{ 'is-invalid': (simpleForm.get('facultyId').touched || simpleForm.get('facultyId').dirty) && simpleForm.get('facultyId').errors }">
+                <span
+                  *ngIf="simpleForm.get('facultyId').errors && (simpleForm.get('facultyId').dirty || simpleForm.get('facultyId').touched)"
+                  class="invalid-feedback">
+                  <div *ngIf="simpleForm.get('facultyId').errors.required">Required</div>
+                </span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="hf-branchName">Father Name</label>
+              <div class="col-md-9">
+                <input type="text" id="hf-branchName" name="hf-branchName" class="form-control"
+                  placeholder="Enter Father Name.." autocomplete="off" formControlName="fatherName" required
+                  [ngClass]="{ 'is-invalid': (simpleForm.get('fatherName').touched || simpleForm.get('fatherName').dirty) && simpleForm.get('fatherName').errors }">
+                <span
+                  *ngIf="simpleForm.get('fatherName').errors && (simpleForm.get('fatherName').dirty || simpleForm.get('fatherName').touched)"
+                  class="invalid-feedback">
+                  <div *ngIf="simpleForm.get('fatherName').errors.required">Required</div>
+                </span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="hf-file">Contact Phone</label>
+              <div class="col-md-9">
+                <input type="text" id="hf-file" name="hf-file" class="form-control" placeholder="Enter Contact Phone"
+                  autocomplete="phoneNo" formControlName="phoneNo" required 
+                  [ngClass]="{ 'is-invalid': (simpleForm.get('phoneNo').touched || simpleForm.get('phoneNo').dirty) && simpleForm.get('phoneNo').errors }">
+                <span
+                  *ngIf="simpleForm.get('phoneNo').errors && (simpleForm.get('phoneNo').dirty || simpleForm.get('phoneNo').touched)"
+                  class="invalid-feedback">
+                  <div *ngIf="simpleForm.get('phoneNo').errors.required">Required</div>
+                </span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="hf-file">Designation</label>
+              <div class="col-md-9">
+                <input type="text" id="hf-file" name="hf-file" class="form-control" placeholder="Enter Designation"
+                  autocomplete="off" formControlName="designation" required 
+                  [ngClass]="{ 'is-invalid': (simpleForm.get('designation').touched || simpleForm.get('designation').dirty) && simpleForm.get('designation').errors }">
+                <span
+                  *ngIf="simpleForm.get('designation').errors && (simpleForm.get('designation').dirty || simpleForm.get('designation').touched)"
+                  class="invalid-feedback">
+                  <div *ngIf="simpleForm.get('designation').errors.required">Required</div>
+                </span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="hf-file">Password</label>
+              <div class="col-md-9">
+                <input type="password" autocomplete="new-password" id="hf-file" name="hf-file" class="form-control" placeholder="Enter Password"
+                  autocomplete="password" formControlName="password" required 
+                  [ngClass]="{ 'is-invalid': (simpleForm.get('password').touched || simpleForm.get('password').dirty) && simpleForm.get('password').errors }">
+                <span
+                  *ngIf="simpleForm.get('password').errors && (simpleForm.get('password').dirty || simpleForm.get('password').touched)"
+                  class="invalid-feedback">
+                  <div *ngIf="simpleForm.get('password').errors.required">Required</div>
+                </span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="hf-description">Address Information</label>
+              <div class="col-md-9">
+                <textarea type="text" rows="8" id="hf-description" name="hf-description" class="form-control"
+                  placeholder="Enter Address information.." autocomplete="address" formControlName="address" required
+                  
+                  [ngClass]="{ 'is-invalid': (simpleForm.get('address').touched || simpleForm.get('address').dirty) && simpleForm.get('address').errors }"></textarea>
+                <span
+                  *ngIf="simpleForm.get('address').errors && (simpleForm.get('address').dirty || simpleForm.get('address').touched)"
+                  class="invalid-feedback">
+                  <div *ngIf="simpleForm.get('address').errors.required">Required</div>
+                </span>
+              </div>
+            </div>
+
+          </div>
+          <div class="card-footer" *ngIf="readMode">
+            <button type="submit" class="btn btn-sm btn-primary" [disabled]="simpleForm.invalid">
+              <i class="fa fa-dot-circle-o"></i> Submit</button>
+            <button type="button" class="btn btn-sm btn-danger" (click)="onReset()">
+              <i class="fa fa-ban"></i> Reset</button>
+          </div>
+        </div>
+      </div>
+      <!--/.col-->
+    </div>
+    <!--/.row-->
+  </form>
+  <!-- <div bsModal #primaryModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-primary" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Modal title</h4>
+          <button type="button" class="close" (click)="primaryModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>One fine body&hellip;</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="primaryModal.hide()">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+  <!-- </div>/.modal-content -->
+  <!-- </div>/.modal-dialog -->
+  <!-- </div>/.modal -->
+</div>
+<!-- <button type="button" class="btn btn-primary mr-1" data-toggle="modal" (click)="primaryModal.show()">
+  Primary modal
+</button> -->

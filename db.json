@@ -1,0 +1,125 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "nadraData": [
+    {
+      "CNIC": 2,
+      "firstName": "samra",
+      "middleName": "hanif",
+      "lastName": "sheikh",
+      "fatherName": "daddasd",
+      "DOB": "2019/08/17",
+      "gender": "female",
+      "ntn": 31232132132132130000,
+      "familySize": 22
+    },
+    {
+      "CNIC": 2,
+      "firstName": "samra",
+      "middleName": "hanif",
+      "lastName": "sheikh",
+      "fatherName": "daddasd",
+      "DOB": "2019/08/17",
+      "gender": "female",
+      "ntn": 31232132132132130000,
+      "familySize": 22
+    }
+  ],
+  "lookUps": [
+    {
+      "id": 1,
+      "type": "Karachi"
+    },
+    {
+      "id": 2,
+      "type": "Multan"
+    }
+  ],
+  "employmentData": [
+    {
+      "category": "Salaried",
+      "houseNo": "Culpa culpa id corp",
+      "appartmentOrsociety": "Blanditiis sint veri",
+      "area": "Multan",
+      "nearestLocation": "Dicta amet eius in ",
+      "districtTehsil": "Multan",
+      "city": "Karachi",
+      "province": "Multan",
+      "address": "Accusamus eiusmod ra",
+      "employeerName": "fdfsdf",
+      "cellNumber": "23124124124",
+      "phoneNumber": "24124",
+      "hrEmail": "gfhf",
+      "employmentStatus": "Karachi",
+      "designation": "ghgf",
+      "grade": "hgfh",
+      "employedSince": "2019-03-21T00:00:00.000Z",
+      "careerYears": "2019-03-16T00:00:00.000Z",
+      "legalEntity": "Multan",
+      "natureOfBusiness": "Multan",
+      "other": "",
+      "grossSalary": "45435",
+      "income": "345"
+    },
+    {
+      "companyName": "Amet suscipit maior",
+      "address": "Cupiditate blanditii",
+      "houseNo": "Obcaecati cupiditate",
+      "appartment/society": "Non enim sed officii",
+      "area": "Karachi",
+      "nearestLocation": "Animi qui labore fa",
+      "city": "Karachi",
+      "province": "Karachi",
+      "phone": "34324324324",
+      "designation": "Dignissimos fuga De",
+      "grade": "Recusandae Numquam ",
+      "employedFrom": "2019-03-14T00:00:00.000Z",
+      "employedTo": "2019-03-07T00:00:00.000Z"
+    },
+    {
+      "houseNo": "ewrewr",
+      "appartment/society": "erewrew",
+      "area": "Karachi",
+      "nearestLocation": "rewrewr",
+      "districtTehsil": "Multan",
+      "city": "Multan",
+      "province": "Karachi",
+      "address": "adasd",
+      "guage": "Karachi",
+      "sizeOfAccomodation": "4",
+      "landOwnedSince": "2019-03-28T00:00:00.000Z",
+      "agriIncome": "343"
+    },
+    {
+      "cnic": "4324343432432",
+      "firstName": "",
+      "middleName": "",
+      "lastName": "",
+      "guradianName": "",
+      "motherName": "Doloremque placeat ",
+      "education": "Multan",
+      "otherQualification": "Suscipit sit dolore",
+      "DOB": "",
+      "gender": "",
+      "oldCNIC": "1234123123123",
+      "relationshipWithApplicant": "Multan",
+      "address": "Blanditiis asperiore",
+      "houseNo": "Et non fuga Nam qui",
+      "appartment/society": "Eos cupiditate enim ",
+      "area": "Karachi",
+      "nearestLocation": "Vitae doloremque ass",
+      "city": "Karachi",
+      "province": "Karachi",
+      "phone1": "32432432432",
+      "phone2": "11111111111",
+      "cell1": "44444444444",
+      "cell2": "44444444444",
+      "sourceOfIncome": "Karachi"
+    }
+  ]
+}
